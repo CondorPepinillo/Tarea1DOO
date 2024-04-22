@@ -48,6 +48,7 @@ class Expendedor{
     private Deposito coca;
     private Deposito sprite;
     private DepositoM monVu;
+    private Deposito dulce;
     private int precio;
     public static final int COCA = 1;
     public static final int SPRITE = 2;
@@ -160,10 +161,13 @@ class DepositoM{
     }
 }
 
-class Deposito{
+class Deposito<T>{
+    private T t;
     private ArrayList<Bebida> arr;
-    public Deposito(){
-        arr = new ArrayList<Bebida>();
+    public T Deposito(){
+        T ret = this.t;
+        arr = new ArrayList<t>();
+        return ret;
     }
 
     public void addBebida(Bebida b){
