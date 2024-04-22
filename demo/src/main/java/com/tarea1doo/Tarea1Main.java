@@ -163,18 +163,17 @@ class DepositoM{
 
 class Deposito<T>{
     private T t;
-    private ArrayList<Bebida> arr;
+    private ArrayList<T> arr;
     public T Deposito(){
         T ret = this.t;
-        arr = new ArrayList<t>();
-        return ret;
+        arr = new ArrayList<>();
     }
 
-    public void addBebida(Bebida b){
+    public void addBebida(T b){
         arr.add(b);
     }
 
-    public Bebida getBebida(){
+    public T getBebida(){
         if(arr.size() > 0){
             return arr.remove(0);
         } else{
