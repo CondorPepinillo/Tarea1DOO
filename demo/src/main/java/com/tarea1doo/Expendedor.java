@@ -7,12 +7,26 @@ public class Expendedor{
     private Deposito caramelo;
     private DepositoM monVu;
     private int precio;
-    public static final int COCA = 1;
-    public static final int SPRITE = 2;
-    public static final int CHOCOLATE = 3;
-    public static final int CARAMELO = 4;
+    private int precioProducto;
 
-    public Expendedor(int numProductos, int precioProducto){
+
+    public Expendedor(int numProductos, ProductList Producto){
+        switch (Producto) {
+            case COCA:
+                this.precioProducto = 300;
+                break;
+            case SPRITE:
+                this.precioProducto = 200;
+                break;
+            case CHOCOLATE:
+                this.precioProducto = 500;
+                break;
+            case CARAMELO:
+                this.precioProducto = 100;
+                break;
+            default:
+                break;
+        }
         precio = precioProducto;
         coca = new Deposito();
         sprite = new Deposito();
@@ -39,7 +53,7 @@ public class Expendedor{
             return null;
         } 
 
-        if(cual != COCA && cual != SPRITE && cual != CHOCOLATE && cual != CARAMELO){
+        if(cual != 1 && cual != 2 && cual != 3 && cual != 4){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }

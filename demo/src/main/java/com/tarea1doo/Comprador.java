@@ -4,8 +4,25 @@ public class Comprador{
     private String sonido;
     private int vuelto;
     private int cualProducto;
-    public Comprador(Moneda m, int cualProducto, Expendedor exp){
-        Producto b = exp.comprarBebida(m, cualProducto);
+    public Comprador(Moneda m, ProductList Producto, Expendedor exp){
+        switch (Producto) {
+            case COCA:
+                this.cualProducto = 1;
+                break;
+            case SPRITE:
+                this.cualProducto = 2;
+                break;
+            case CHOCOLATE:
+                this.cualProducto = 3;
+                break;
+            case CARAMELO:
+                this.cualProducto = 4;
+                break;
+            default:
+                break;
+        }
+
+        Producto b = exp.comprarBebida(m, this.cualProducto);
         while(true){
             Moneda aux = exp.getVuelto();
             if(aux == null){
@@ -20,9 +37,6 @@ public class Comprador{
         else{
             sonido = b.beber();
         }
-
-
-        this.cualProducto = cualProducto;
     }
 
     public int cuantoVuelto(){
