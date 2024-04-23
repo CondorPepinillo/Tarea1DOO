@@ -1,6 +1,6 @@
 package com.tarea1doo;
 
-public class Sprite extends Bebida{
+public class Sprite extends Producto{
     public Sprite(int serie){
         super(serie);
     }

@@ -2,20 +2,17 @@ package com.tarea1doo;
 
 import java.util.ArrayList;
 
-public class Deposito<T>{
-    private T t;
-    private ArrayList<Bebida> arr;
-    public T Deposito(){
-        T ret = this.t;
-        arr = new ArrayList<t>();
-        return ret;
+public class Deposito{
+    private ArrayList<Producto> arr;
+    public  Deposito(){
+        arr = new ArrayList<>();
     }
 
-    public void addBebida(Bebida b){
+    public void addBebida(Producto b){
         arr.add(b);
     }
 
-    public Bebida getBebida(){
+    public Producto getBebida(){
         if(arr.size() > 0){
             return arr.remove(0);
         } else{

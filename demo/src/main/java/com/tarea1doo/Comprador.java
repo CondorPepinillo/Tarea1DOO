@@ -3,8 +3,9 @@ package com.tarea1doo;
 public class Comprador{
     private String sonido;
     private int vuelto;
-    public Comprador(Moneda m, int cualBebida, Expendedor exp){
-        Bebida b = exp.comprarBebida(m, cualBebida);
+    private int cualProducto;
+    public Comprador(Moneda m, int cualProducto, Expendedor exp){
+        Producto b = exp.comprarBebida(m, cualProducto);
         while(true){
             Moneda aux = exp.getVuelto();
             if(aux == null){
@@ -15,10 +16,13 @@ public class Comprador{
         }
         if(b == null){
             sonido = null;
-        } else{
+        }
+        else{
             sonido = b.beber();
         }
-        
+
+
+        this.cualProducto = cualProducto;
     }
 
     public int cuantoVuelto(){
@@ -26,6 +30,20 @@ public class Comprador{
     }
 
     public String queBebiste(){
-        return sonido;
+        if(cualProducto == 1 || cualProducto == 2){
+            return sonido;
+        }
+        else{
+            return "No se puede";
+        }
+    }
+
+    public String queComiste(){
+        if(cualProducto == 3 || cualProducto == 4){
+            return sonido;
+        }
+        else{
+            return "No se puede";
+        }
     }
 }
