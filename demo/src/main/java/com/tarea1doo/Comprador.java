@@ -4,7 +4,7 @@ public class Comprador{
     private String sonido;
     private int vuelto;
     private int cualProducto;
-    public Comprador(Moneda m, ProductList Producto, Expendedor exp){
+    public Comprador(Moneda m, ProductList Producto, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException{
         switch (Producto) {
             case COCA:
                 this.cualProducto = 1;

@@ -41,30 +41,30 @@ public class Expendedor{
         }
     }
 
-    public Producto comprarProducto(Moneda m, int cual){
+    public Producto comprarProducto(Moneda m, int cual) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException{
         if(m == null){
-            return null;
+            throw new PagoIncorrectoException("No se introdujo moneda");
         }
 
         if(m.getValor() < precio){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            return null;
+            throw new PagoInsuficienteException("Pago insuficiente");
         } 
 
         if(cual != 1 && cual != 2 && cual != 3 && cual != 4){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            return null;
+            throw new NoHayProductoException("Producto no existe");
         }
 
         if(coca.checkSize() && sprite.checkSize() && chocolate.checkSize() && caramelo.checkSize()){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            return null;
+            throw new NoHayProductoException("No hay producto");
         }
         
         switch (cual) {
@@ -97,4 +97,3 @@ public class Expendedor{
         return monVu.getMoneda();
     }
 }
-
