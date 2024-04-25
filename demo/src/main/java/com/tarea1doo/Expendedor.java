@@ -41,7 +41,7 @@ public class Expendedor{
         }
     }
 
-    public Producto comprarBebida(Moneda m, int cual){
+    public Producto comprarProducto(Moneda m, int cual){
         if(m == null){
             return null;
         }
@@ -97,3 +97,4 @@ public class Expendedor{
         return monVu.getMoneda();
     }
 }
+

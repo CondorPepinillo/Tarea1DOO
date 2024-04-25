@@ -22,7 +22,7 @@ public class Comprador{
                 break;
         }
 
-        Producto b = exp.comprarBebida(m, this.cualProducto);
+        Producto b = exp.comprarProducto(m, this.cualProducto);
         while(true){
             Moneda aux = exp.getVuelto();
             if(aux == null){
