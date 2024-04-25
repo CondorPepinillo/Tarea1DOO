@@ -1,62 +1,46 @@
 package com.tarea1doo;
-/**
- *Esta clase representa un expendedor de bebidas y dulces.
- * El expendedor tiene depósitos para cada tipo de bebida y dulce (Coca-Cola, Sprite, Chocolate y Caramelo) y un depósito para las monedas.
- * El expendedor también tiene un precio para cada tipo de bebida y dulce.
- */
-public class Expendedor{
-    /* El depósito de Coca-Cola.*/
-    private Deposito coca;
-    /* El depósito de Sprite.*/
-    private Deposito sprite;
-    /*El depósito de Chocolate.*/
-    private Deposito chocolate;
-    /* El depósito de Caramelo.*/
-    private Deposito caramelo;
-    /* El depósito de monedas.*/
-    private DepositoM monVu;
-    /* El precio del producto seleccionado.*/
-    private int precio;
 
+public class Expendedor{
+    private Deposito coca;
+    private Deposito sprite;
+    private Deposito chocolate;
+    private Deposito caramelo;
+    private DepositoM monVu;
+    private int precio;
+    private int precioProducto;
 
 
     public Expendedor(int numProductos, ProductList Producto){
         switch (Producto) {
             case COCA:
-                this.precio = 300;
+                this.precioProducto = 300;
                 break;
             case SPRITE:
-                this.precio = 200;
+                this.precioProducto = 200;
                 break;
             case CHOCOLATE:
-                this.precio = 500;
+                this.precioProducto = 500;
                 break;
             case CARAMELO:
-                this.precio = 100;
+                this.precioProducto = 100;
                 break;
             default:
                 break;
         }
+        precio = precioProducto;
         coca = new Deposito();
         sprite = new Deposito();
         chocolate = new Deposito();
         caramelo = new Deposito();
         monVu = new DepositoM();
         for(int i = 0;i < numProductos;i++){
-            coca.addProducto(new CocaCola(100 + i));
-            sprite.addProducto(new Sprite(200 + i));
-            chocolate.addProducto(new Chocolate(300 + i));
-            caramelo.addProducto(new Caramelo(400 + i));
+            coca.addBebida(new CocaCola(100 + i));
+            sprite.addBebida(new Sprite(200 + i));
+            chocolate.addBebida(new Chocolate(300 + i));
+            caramelo.addBebida(new Caramelo(400 + i));
         }
     }
 
-    /**
-     * Compra un producto con una moneda.
-     *
-     * @param m La moneda a utilizar para comprar el producto.
-     * @param cual El tipo de producto a comprar.
-     * @return El producto comprado, o null si la compra no es posible.
-     */
     public Producto comprarBebida(Moneda m, int cual){
         if(m == null){
             return null;
@@ -88,32 +72,27 @@ public class Expendedor{
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return coca.getProducto();
+                return coca.getBebida();
             case 2:
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return sprite.getProducto();
+                return sprite.getBebida();
             case 3:
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return chocolate.getProducto();
+                return chocolate.getBebida();
             case 4:
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return caramelo.getProducto();
+                return caramelo.getBebida();
             default:
                 return null; 
         }
     }
 
-    /**
-     * Devuelve el vuelto de la compra.
-     *
-     * @return El vuelto de la compra, o null si no hay vuelto.
-     */
     public Moneda getVuelto(){
         return monVu.getMoneda();
     }
