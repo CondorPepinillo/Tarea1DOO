@@ -12,12 +12,16 @@ public class Comprador{
             case SPRITE:
                 this.cualProducto = 2;
                 break;
-            case CHOCOLATE:
+            case FANTA:
                 this.cualProducto = 3;
                 break;
-            case CARAMELO:
+            case SNICKERS:
                 this.cualProducto = 4;
                 break;
+            case SUPER8:
+                this.cualProducto = 5;
+                break;
+
             default:
                 break;
         }
@@ -44,7 +48,7 @@ public class Comprador{
     }
 
     public String queBebiste(){
-        if(cualProducto == 1 || cualProducto == 2){
+        if(cualProducto == 1 || cualProducto == 2 || cualProducto == 3){
             return sonido;
         }
         else{
@@ -53,7 +57,7 @@ public class Comprador{
     }
 
     public String queComiste(){
-        if(cualProducto == 3 || cualProducto == 4){
+        if(cualProducto == 4 || cualProducto == 5){
             return sonido;
         }
         else{

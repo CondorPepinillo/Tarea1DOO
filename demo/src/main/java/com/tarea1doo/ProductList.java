@@ -2,9 +2,10 @@ package com.tarea1doo;
 
 public enum ProductList {
     COCA,
-    CHOCOLATE,
+    FANTA,
     SPRITE,
-    CARAMELO;
+    SNICKERS,
+    SUPER8;
 }
 
 

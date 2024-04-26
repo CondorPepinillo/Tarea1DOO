@@ -3,8 +3,9 @@ package com.tarea1doo;
 public class Expendedor{
     private Deposito coca;
     private Deposito sprite;
-    private Deposito chocolate;
-    private Deposito caramelo;
+    private Deposito fanta;
+    private Deposito snickers;
+    private Deposito super8;
     private DepositoM monVu;
     private int precio;
     private int precioProducto;
@@ -16,13 +17,16 @@ public class Expendedor{
                 this.precioProducto = 300;
                 break;
             case SPRITE:
-                this.precioProducto = 200;
+                this.precioProducto = 600;
                 break;
-            case CHOCOLATE:
+            case FANTA:
                 this.precioProducto = 500;
                 break;
-            case CARAMELO:
-                this.precioProducto = 100;
+            case SNICKERS:
+                this.precioProducto = 1000;
+                break;
+                case SUPER8:
+                this.precioProducto = 800;
                 break;
             default:
                 break;
@@ -30,14 +34,16 @@ public class Expendedor{
         precio = precioProducto;
         coca = new Deposito();
         sprite = new Deposito();
-        chocolate = new Deposito();
-        caramelo = new Deposito();
+        fanta = new Deposito();
+        snickers = new Deposito();
+        super8 = new Deposito();
         monVu = new DepositoM();
         for(int i = 0;i < numProductos;i++){
             coca.addBebida(new CocaCola(100 + i));
             sprite.addBebida(new Sprite(200 + i));
-            chocolate.addBebida(new Chocolate(300 + i));
-            caramelo.addBebida(new Caramelo(400 + i));
+            fanta.addBebida(new Fanta(300 + i));
+            snickers.addBebida(new Snickers(400 + i));
+            super8.addBebida(new Super8(500 + i));
         }
     }
 
@@ -53,14 +59,14 @@ public class Expendedor{
             throw new PagoInsuficienteException();
         } 
 
-        if(cual != 1 && cual != 2 && cual != 3 && cual != 4){
+        if(cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
             throw new NoHayProductoException();
         }
 
-        if(coca.checkSize() && sprite.checkSize() && chocolate.checkSize() && caramelo.checkSize()){
+        if(coca.checkSize() && sprite.checkSize() && fanta.checkSize() && snickers.checkSize() && super8.checkSize()){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
@@ -82,12 +88,17 @@ public class Expendedor{
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return chocolate.getBebida();
+                return fanta.getBebida();
             case 4:
                 for(int i = 0;i < (m.getValor() - precio)/100;i++){
                     monVu.addMoneda(new Moneda100());
                 }
-                return caramelo.getBebida();
+                return snickers.getBebida();
+            case 5:
+                for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                    monVu.addMoneda(new Moneda100());
+                }
+                return super8.getBebida();
             default:
                 return null; 
         }

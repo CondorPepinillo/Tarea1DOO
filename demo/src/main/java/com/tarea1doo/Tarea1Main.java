@@ -3,7 +3,7 @@ package com.tarea1doo;
 public class Tarea1Main {
     public static void main(String[] args){
         Expendedor exp = new Expendedor(5, ProductList.COCA);
-        Expendedor exp2 = new Expendedor(5, ProductList.CHOCOLATE);
+        Expendedor exp2 = new Expendedor(5, ProductList.SNICKERS);
         Moneda m = null;
         Comprador c = null;
         try{
@@ -16,7 +16,7 @@ public class Tarea1Main {
         }
         Comprador dulce = null;
         try{
-            dulce = new Comprador(m,ProductList.CHOCOLATE,exp2);
+            dulce = new Comprador(m,ProductList.SNICKERS,exp2);
             System.out.println(dulce.queComiste());
             System.out.println(dulce.queBebiste ());
             System.out.println(dulce.cuantoVuelto());
