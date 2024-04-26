@@ -53,54 +53,63 @@ public class Expendedor{
         }
 
         if(m.getValor() < precio){
-            for(int i = 0;i < m.getValor()/100;i++){
-                monVu.addMoneda(new Moneda100());
-            }
+            monVu.addMoneda(m);
             throw new PagoInsuficienteException();
         } 
 
-        if(cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5){
-            for(int i = 0;i < m.getValor()/100;i++){
-                monVu.addMoneda(new Moneda100());
-            }
-            throw new NoHayProductoException();
-        }
-
-        if(coca.checkSize() && sprite.checkSize() && fanta.checkSize() && snickers.checkSize() && super8.checkSize()){
-            for(int i = 0;i < m.getValor()/100;i++){
-                monVu.addMoneda(new Moneda100());
-            }
-            throw new NoHayProductoException();
-        }
-        
         switch (cual) {
             case 1:
-                for(int i = 0;i < (m.getValor() - precio)/100;i++){
-                    monVu.addMoneda(new Moneda100());
+                if(coca.checkSize()){
+                    monVu.addMoneda(m);
+                    throw new NoHayProductoException();
+                } else {
+                    for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                    return coca.getBebida();
                 }
-                return coca.getBebida();
             case 2:
-                for(int i = 0;i < (m.getValor() - precio)/100;i++){
-                    monVu.addMoneda(new Moneda100());
+                if(sprite.checkSize()){
+                    monVu.addMoneda(m);
+                    throw new NoHayProductoException();
+                } else {
+                    for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                    return sprite.getBebida();
                 }
-                return sprite.getBebida();
             case 3:
-                for(int i = 0;i < (m.getValor() - precio)/100;i++){
-                    monVu.addMoneda(new Moneda100());
+                if(fanta.checkSize()){
+                    monVu.addMoneda(m);
+                    throw new NoHayProductoException();
+                } else {
+                    for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                    return fanta.getBebida();
                 }
-                return fanta.getBebida();
             case 4:
-                for(int i = 0;i < (m.getValor() - precio)/100;i++){
-                    monVu.addMoneda(new Moneda100());
+                if(snickers.checkSize()){
+                    monVu.addMoneda(m);
+                    throw new NoHayProductoException();
+                } else {
+                    for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                    return snickers.getBebida();
                 }
-                return snickers.getBebida();
             case 5:
-                for(int i = 0;i < (m.getValor() - precio)/100;i++){
-                    monVu.addMoneda(new Moneda100());
+                if(super8.checkSize()){
+                    monVu.addMoneda(m);
+                    throw new NoHayProductoException();
+                } else {
+                    for(int i = 0;i < (m.getValor() - precio)/100;i++){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                    return super8.getBebida();
                 }
-                return super8.getBebida();
             default:
-                return null; 
+                return null;
         }
     }
 
