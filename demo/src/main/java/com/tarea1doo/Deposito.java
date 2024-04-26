@@ -23,7 +23,7 @@ public class Deposito{
      * Añade un producto al depósito.
      * @param b Producto a añadir.
      */
-    public void addBebida(Producto b){
+    public void addProducto(Producto b){
         arr.add(b);
     }
 
@@ -31,7 +31,7 @@ public class Deposito{
      * Obtiene un producto del depósito.
      * @return Producto obtenido, o null si el depósito está vacío.
      */
-    public Producto getBebida(){
+    public Producto getProducto(){
         if(arr.size() > 0){
             return arr.remove(0);
         } else{

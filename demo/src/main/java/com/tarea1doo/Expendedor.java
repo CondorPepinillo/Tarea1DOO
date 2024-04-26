@@ -52,11 +52,11 @@ public class Expendedor{
         super8 = new Deposito();
         monVu = new DepositoM();
         for(int i = 0;i < numProductos;i++){
-            coca.addBebida(new CocaCola(100 + i));
-            sprite.addBebida(new Sprite(200 + i));
-            fanta.addBebida(new Fanta(300 + i));
-            snickers.addBebida(new Snickers(400 + i));
-            super8.addBebida(new Super8(500 + i));
+            coca.addProducto(new CocaCola(100 + i));
+            sprite.addProducto(new Sprite(200 + i));
+            fanta.addProducto(new Fanta(300 + i));
+            snickers.addProducto(new Snickers(400 + i));
+            super8.addProducto(new Super8(500 + i));
         }
     }
 
@@ -89,7 +89,7 @@ public class Expendedor{
                     for(int i = 0;i < (m.getValor() - precio)/100;i++){
                         monVu.addMoneda(new Moneda100());
                     }
-                    return coca.getBebida();
+                    return coca.getProducto();
                 }
             case 2:
                 if(sprite.checkSize()){
@@ -99,7 +99,7 @@ public class Expendedor{
                     for(int i = 0;i < (m.getValor() - precio)/100;i++){
                         monVu.addMoneda(new Moneda100());
                     }
-                    return sprite.getBebida();
+                    return sprite.getProducto();
                 }
             case 3:
                 if(fanta.checkSize()){
@@ -109,7 +109,7 @@ public class Expendedor{
                     for(int i = 0;i < (m.getValor() - precio)/100;i++){
                         monVu.addMoneda(new Moneda100());
                     }
-                    return fanta.getBebida();
+                    return fanta.getProducto();
                 }
             case 4:
                 if(snickers.checkSize()){
@@ -119,7 +119,7 @@ public class Expendedor{
                     for(int i = 0;i < (m.getValor() - precio)/100;i++){
                         monVu.addMoneda(new Moneda100());
                     }
-                    return snickers.getBebida();
+                    return snickers.getProducto();
                 }
             case 5:
                 if(super8.checkSize()){
@@ -129,7 +129,7 @@ public class Expendedor{
                     for(int i = 0;i < (m.getValor() - precio)/100;i++){
                         monVu.addMoneda(new Moneda100());
                     }
-                    return super8.getBebida();
+                    return super8.getProducto();
                 }
             default:
                 return null;
