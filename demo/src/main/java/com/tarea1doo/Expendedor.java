@@ -1,37 +1,50 @@
 package com.tarea1doo;
-
+/**
+ * Esta clase representa un expendedor de bebidas y dulces.
+ * El expendedor tiene depósitos para cada tipo de bebida y dulce (Coca-Cola, Sprite, Fanta, Snickers y Super8) y un depósito para las monedas.
+ * El expendedor también tiene un precio para cada tipo de bebida y dulce.
+ */
 public class Expendedor{
+    /* El depósito de Coca-Cola.*/
     private Deposito coca;
+    /* El depósito de Sprite.*/
     private Deposito sprite;
+    /* El depósito de Fanta.*/
     private Deposito fanta;
+    /* El depósito de Snickers.*/
     private Deposito snickers;
+    /* El depósito de Super8.*/
     private Deposito super8;
+    /* El depósito de monedas.*/
     private DepositoM monVu;
     private int precio;
-    private int precioProducto;
 
-
+    /**
+     * Crea un nuevo expendedor con el número especificado de productos y el tipo de producto especificado.
+     *
+     * @param numProductos El número de productos a añadir al expendedor.
+     * @param Producto El tipo de producto a añadir al expendedor.
+     */
     public Expendedor(int numProductos, ProductList Producto){
         switch (Producto) {
             case COCA:
-                this.precioProducto = 300;
+                this.precio = 300;
                 break;
             case SPRITE:
-                this.precioProducto = 600;
+                this.precio = 600;
                 break;
             case FANTA:
-                this.precioProducto = 500;
+                this.precio = 500;
                 break;
             case SNICKERS:
-                this.precioProducto = 1000;
+                this.precio = 1000;
                 break;
                 case SUPER8:
-                this.precioProducto = 800;
+                this.precio = 800;
                 break;
             default:
                 break;
         }
-        precio = precioProducto;
         coca = new Deposito();
         sprite = new Deposito();
         fanta = new Deposito();
@@ -47,6 +60,16 @@ public class Expendedor{
         }
     }
 
+    /**
+     * Compra un producto del expendedor.
+     *
+     * @param m La moneda utilizada para comprar el producto.
+     * @param cual El número del producto a comprar.
+     * @return El producto comprado.
+     * @throws PagoIncorrectoException Si la moneda no es válida.
+     * @throws NoHayProductoException Si el producto no está disponible.
+     * @throws PagoInsuficienteException Si la moneda no tiene suficiente valor para comprar el producto.
+     */
     public Producto comprarProducto(Moneda m, int cual) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException{
         if(m == null){
             throw new PagoIncorrectoException();
@@ -112,7 +135,12 @@ public class Expendedor{
                 return null;
         }
     }
-
+    
+    /**
+     * Devuelve el vuelto del pago.
+     *
+     * @return El vuelto del pago.
+     */
     public Moneda getVuelto(){
         return monVu.getMoneda();
     }

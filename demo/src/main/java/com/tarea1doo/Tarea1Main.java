@@ -1,5 +1,10 @@
 package com.tarea1doo;
-
+/** 
+ * 
+ * @author Martin Alexander Tapia Medina 
+ * @author Benjamin Eduardo Martinez Quijada
+ * @version versión 1.16, 26-04-2023
+ */
 public class Tarea1Main {
     public static void main(String[] args){
         Expendedor exp = new Expendedor(5, ProductList.COCA);
