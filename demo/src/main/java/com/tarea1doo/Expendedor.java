@@ -43,28 +43,28 @@ public class Expendedor{
 
     public Producto comprarProducto(Moneda m, int cual) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException{
         if(m == null){
-            throw new PagoIncorrectoException("No se introdujo moneda");
+            throw new PagoIncorrectoException();
         }
 
         if(m.getValor() < precio){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            throw new PagoInsuficienteException("Pago insuficiente");
+            throw new PagoInsuficienteException();
         } 
 
         if(cual != 1 && cual != 2 && cual != 3 && cual != 4){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            throw new NoHayProductoException("Producto no existe");
+            throw new NoHayProductoException();
         }
 
         if(coca.checkSize() && sprite.checkSize() && chocolate.checkSize() && caramelo.checkSize()){
             for(int i = 0;i < m.getValor()/100;i++){
                 monVu.addMoneda(new Moneda100());
             }
-            throw new NoHayProductoException("No hay producto");
+            throw new NoHayProductoException();
         }
         
         switch (cual) {
